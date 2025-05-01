@@ -11,12 +11,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "upeu_categoria")
-public class Categoria {
+@Table(name = "upeu_unid_medida")
+public class UnidadMedida {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_categoria")
-    private Long idCategoria;
-    @Column(name = "nombre", nullable = false, length = 60)
-    private String nombre;
+    @Column(name = "id_unidad")
+    private Long idUnidad;
+    @Column(name = "nombre_medida", nullable = false, length = 60)
+    private String nombreMedida;
+    // Getters, Setters, and other methods
 }
