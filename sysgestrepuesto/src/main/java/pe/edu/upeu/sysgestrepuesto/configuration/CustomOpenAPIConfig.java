@@ -22,11 +22,11 @@ public class CustomOpenAPIConfig {
         );
     }
     // Configuración de grupos para documentación (endpoints específicos)
-    @Bean
+   /* @Bean
     public GroupedOpenApi publicApi() {
         return GroupedOpenApi.builder()
                 .group("springshop-public")  // Nombre del grupo
                 .pathsToMatch("/api/**")      // Ruta de los endpoints a documentar
                 .build();
-    }
+    }*/
 }
