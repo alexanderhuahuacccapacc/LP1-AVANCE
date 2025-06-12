@@ -2,24 +2,25 @@ package pe.edu.upeu.sysgestrepuesto.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import pe.edu.upeu.sysgestrepuesto.model.UsuarioRol;
-import pe.edu.upeu.sysgestrepuesto.repository.ICrudGenericoRepository;
 import pe.edu.upeu.sysgestrepuesto.repository.IUsuarioRolRepository;
 import pe.edu.upeu.sysgestrepuesto.service.IUsuarioRolService;
 
-@Transactional
+
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
-
-public class UsuarioRolServiceImp extends CrudGenericoServiceImp<UsuarioRol, Long>  implements IUsuarioRolService {
-
-    private final IUsuarioRolRepository usuarioRolRepository;
-
-
+public class UsuarioRolServiceImp implements IUsuarioRolService {
+    private final IUsuarioRolRepository repo;
     @Override
-    protected ICrudGenericoRepository<UsuarioRol, Long> getRepo() {
-        return usuarioRolRepository;
+    public List<UsuarioRol> findOneByUsuarioUser(String user) {
+        return repo.findOneByUsuarioUser(user);
     }
-}
+    @Override
+    public UsuarioRol save(UsuarioRol ur) {
+        return repo.save(ur);
+    }
 
+
+}

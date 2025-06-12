@@ -2,7 +2,9 @@ package pe.edu.upeu.sysgestrepuesto.repository;
 
 import pe.edu.upeu.sysgestrepuesto.model.Cliente;
 
-public interface IClienteRepository extends ICrudGenericoRepository<Cliente,Long>{
+public interface IClienteRepository extends ICrudGenericoRepository<Cliente,String>{
+
+
 
     //idcliente =iddniruc
 

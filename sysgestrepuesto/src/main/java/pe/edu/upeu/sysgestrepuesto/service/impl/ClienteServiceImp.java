@@ -8,16 +8,15 @@ import pe.edu.upeu.sysgestrepuesto.repository.IClienteRepository;
 import pe.edu.upeu.sysgestrepuesto.repository.ICrudGenericoRepository;
 import pe.edu.upeu.sysgestrepuesto.service.IClienteService;
 
-@Transactional
 @Service
+@Transactional
 @RequiredArgsConstructor
+public class ClienteServiceImp extends CrudGenericoServiceImp<Cliente, String> implements IClienteService {
 
-public class ClienteServiceImp extends CrudGenericoServiceImp<Cliente,Long> implements IClienteService {
-
-    private final IClienteRepository clienteRepository;
-
+    private final IClienteRepository repo;
     @Override
-    protected ICrudGenericoRepository<Cliente, Long> getRepo() {
-        return clienteRepository;
+    protected ICrudGenericoRepository<Cliente, String> getRepo(){
+        return repo;
     }
+
 }

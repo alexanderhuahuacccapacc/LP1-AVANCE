@@ -9,8 +9,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class CustomErrorResponse {
+public class CustomResponse {
+    private int statusCode;
     private LocalDateTime datetime;
     private String message;
     private String details;
+
+
+
 }

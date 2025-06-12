@@ -17,10 +17,11 @@ import lombok.NoArgsConstructor;
 @Table(name = "upeu_cliente")
 public class Cliente {
     @Id
-    @Column(name = "idcliente")
-    private Long idcliente;
+
+
     @Column(name = "dniruc", nullable = false, length = 12)
     private String dniruc;
+
     @Column(name = "nombres", nullable = false, length = 160)
     private String nombres;
     @Column(name = "rep_legal", length = 160)

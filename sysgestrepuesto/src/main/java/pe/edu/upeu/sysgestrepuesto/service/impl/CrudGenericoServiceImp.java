@@ -1,9 +1,11 @@
 package pe.edu.upeu.sysgestrepuesto.service.impl;
 
+import pe.edu.upeu.sysgestrepuesto.exception.CustomResponse;
 import pe.edu.upeu.sysgestrepuesto.exception.ModelNotFoundException;
 import pe.edu.upeu.sysgestrepuesto.repository.ICrudGenericoRepository;
 import pe.edu.upeu.sysgestrepuesto.service.ICrudGenericoService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public abstract class CrudGenericoServiceImp<T,ID> implements
@@ -29,9 +31,14 @@ public abstract class CrudGenericoServiceImp<T,ID> implements
                 ModelNotFoundException("ID NOT FOUND: " + id));
     }
     @Override
-    public void delete(ID id) {
-        getRepo().findById(id).orElseThrow(() -> new
-                ModelNotFoundException("ID NOT FOUND: " + id));
+    public CustomResponse delete(ID id) {
+        getRepo().findById(id).orElseThrow(() -> new ModelNotFoundException("ID NOT FOUND: " + id));
         getRepo().deleteById(id);
+        CustomResponse cer=new CustomResponse();
+        cer.setStatusCode(200);
+        cer.setDatetime(LocalDateTime.now());
+        cer.setMessage("true");
+        cer.setDetails("Todo Ok");
+        return cer;
     }
 }
